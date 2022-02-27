@@ -2,8 +2,10 @@ import { createClientsHeader } from "./createHeader.js";
 import { createClientsSection } from "./createClientsSection.js";
 import { getClients } from "./clientsApi.js";
 import { createClientItem } from "./createClientItem.js";
+import { searchClient } from "./searchClient.js";
+import { sortTable } from "./sortClientsTable.js";
 
-const createApp = async () => {
+const createApp = async() => {
     const header = createClientsHeader();
     const clientSection = createClientsSection();
     document.body.append(header, clientSection.main);
@@ -11,6 +13,7 @@ const createApp = async () => {
 
     try {
         const clients = await getClients();
+        searchClient(clients)
 
         for (const client of clients) {
             document.querySelector('.clients__tbody').append(createClientItem(client));
@@ -20,7 +23,8 @@ const createApp = async () => {
     } finally {
         setTimeout(() => preloader.remove(), 1500);
     }
-    
+
 }
 
 createApp();
+document.addEventListener('DOMContentLoaded', sortTable);
