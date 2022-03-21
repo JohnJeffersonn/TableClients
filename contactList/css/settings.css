@@ -73,7 +73,7 @@ a {
 }
 
 .site-modal {
-    position: absolute;
+    position: fixed;
     overflow-x: auto;
     cursor: pointer;
     top: 0;

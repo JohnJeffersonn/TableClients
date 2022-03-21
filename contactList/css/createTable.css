@@ -116,10 +116,6 @@
     fill: #9873FF;
 }
 
-.clients__tbody {
-    position: relative;
-}
-
 .clients__btn:hover {
     transition: color .3s ease-in-out, background-color .3s ease-in-out;
     background-color: #9873FF;
@@ -160,4 +156,9 @@
 .display-info__item--change,
 .display-info__item--create {
     background-image: none;
+}
+
+.clients_wrapper {
+    position: relative;
+    overflow: auto;
 }
